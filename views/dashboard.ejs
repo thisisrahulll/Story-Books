@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>StoryBooks</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .dropdown {
+            width: 100%;
+            display: inline-block;
+            background-color: #fff;
+            border-radius: 2px;
+            box-shadow: 0 0 2px rgb(204, 204, 204);
+            transition: all .5s ease;
+            position: relative;
+            font-size: 14px;
+            color: #474747;
+            height: 100%;
+            text-align: left
+        }
+        
+        .dropdown .select {
+            cursor: pointer;
+            display: block;
+            padding: 10px
+        }
+        
+        .dropdown .select>i {
+            font-size: 13px;
+            color: #888;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+            float: right;
+            line-height: 20px
+        }
+        
+        .dropdown:hover {
+            box-shadow: 0 0 4px rgb(204, 204, 204)
+        }
+        
+        .dropdown:active {
+            background-color: #f8f8f8
+        }
+        
+        .dropdown.active:hover,
+        .dropdown.active {
+            box-shadow: 0 0 4px rgb(204, 204, 204);
+            border-radius: 2px 2px 0 0;
+            background-color: #f8f8f8
+        }
+        
+        .dropdown.active .select>i {
+            transform: rotate(-90deg)
+        }
+        
+        .dropdown .dropdown-menu {
+            position: absolute;
+            background-color: #fff;
+            width: 100%;
+            left: 0;
+            margin-top: 1px;
+            box-shadow: 0 1px 2px rgb(204, 204, 204);
+            border-radius: 0 1px 2px 2px;
+            overflow: hidden;
+            display: none;
+            max-height: 144px;
+            overflow-y: auto;
+            z-index: 9
+        }
+        
+        .dropdown .dropdown-menu li {
+            padding: 10px;
+            transition: all .2s ease-in-out;
+            cursor: pointer
+        }
+        
+        .dropdown .dropdown-menu {
+            padding: 0;
+            list-style: none
+        }
+        
+        .dropdown .dropdown-menu li:hover {
+            background-color: #f2f2f2
+        }
+        
+        .dropdown .dropdown-menu li:active {
+            background-color: #e2e2e2
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="img bg-wrap text-center py-4" style="background-image: url(/images/bg_1.jpg);">
+                <div class="user-logo">
+                    <div class="img" style="background-image: url('<%= image%>');"></div>
+                    <h3>
+                        <%=name%>
+                    </h3>
+                    <h3>
+                        Welcome to Story Books !...
+                    </h3>
+                </div>
+            </div>
+            <ul class="list-unstyled components mb-5">
+                <li class="sidelinks">
+                    <a href="/dashboard"><span class="fa fa-home mr-3"></span>Home</a>
+                </li>
+                <li class="sidelinks">
+                    <a href="/stories/mine"><i class="far fa-id-card mr-3"></i>Dashboard</a>
+                </li>
+                <li class="sidelinks">
+                    <a href="/stories/add"><i class="fas fa-folder-plus mr-3"></i>Add Stories</a>
+                </li>
+                <li class="sidelinks">
+                    <a href="/stories"><i class="fas fa-users mr-3"></i>Public Stories</a>
+                </li>
+                <li class="sidelinks">
+                    <a href="https://thisisrahulll.github.io/mysite/"><i class="fas fa-id-badge mr-3"></i>Portfolio</a>
+                </li>
+                <li class="sidelinks">
+                    <a href="/logout"><span class="fas fa-sign-out-alt mr-3"></span> Sign Out</a>
+                </li>
+            </ul>
+
+        </nav>
+        <!-- Page Content  -->
+        <div id="content">
+            <div class="p-4 p-md-5">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+
+                        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu</span>
+              </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/dashboard">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="https://thisisrahulll.github.io/mysite/">Portfolio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/logout">Sign Out</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <a href="/stories/add">
+                    <div class="floating-menu-btn waves-effect waves-light" data-toggle="tooltip" title="Add Stories">
+                        <div class="floating-menu-toggle-wrap">
+                            <div class="floating-menu-toggle ">
+                                <i class="fa fa-2x fa-plus " style="color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </a>
+
+                <div id="content1">
+                    <%-body%>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <footer class="page-footer font-small " style="background: #5A95F5;">
+
+        <!-- Footer Elements -->
+        <div class="container">
+
+            <!-- Grid row-->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-12 py-1">
+                    <div class="mb-5 flex-center">
+
+                        <!-- Facebook -->
+                        <a class="fb-ic" href="https://www.facebook.com/profile.php?id=100010010383983">
+                            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <!--Linkedin -->
+                        <a class="li-ic" href="https://www.linkedin.com/in/rahul-yadav-b50412216/">
+                            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <!--Instagram-->
+                        <a class="ins-ic" href="https://www.instagram.com/this_is_rahulll/">
+                            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row-->
+
+        </div>
+        <!-- Footer Elements -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="https://thisisrahulll.github.io/mysite/#"> Rahul Yadav </a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+    <!-- Footer -->
+    <script src="/scr/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/scr/popper.js"></script>
+    <script src="/scr/bootstrap.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.8.0/full-all/ckeditor.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+    <script src="/scr/main.js"></script>
+    <script>
+        if (window.innerWidth < 900) {
+            let num = 0;
+            document.querySelector("#sidebarCollapse").addEventListener("click", () => {
+                num++;
+                if (num % 2 != 0) {
+                    document.querySelector("#content1").style.opacity = 0.1;
+                } else {
+                    document.querySelector("#content1").style.opacity = 1;
+
+                }
+            })
+        }
+        $("[data-toggle=tooltip]").tooltip();
+
+        CKEDITOR.replace('editor', {
+            skin: 'moono',
+            enterMode: CKEDITOR.ENTER_BR,
+            shiftEnterMode: CKEDITOR.ENTER_P,
+            toolbar: [{
+                name: 'basicstyles',
+                groups: ['basicstyles'],
+                items: ['Bold', 'Italic', 'Underline', "-", 'TextColor', 'BGColor']
+            }, {
+                name: 'styles',
+                items: ['Format', 'Font', 'FontSize']
+            }, {
+                name: 'scripts',
+                items: ['Subscript', 'Superscript']
+            }, {
+                name: 'justify',
+                groups: ['blocks', 'align'],
+                items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']
+            }, {
+                name: 'paragraph',
+                groups: ['list', 'indent'],
+                items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent']
+            }, {
+                name: 'links',
+                items: ['Link', 'Unlink']
+            }, {
+                name: 'insert',
+                items: ['Image']
+            }, {
+                name: 'spell',
+                items: ['jQuerySpellChecker']
+            }],
+        });
+
+        /*Dropdown Menu*/
+        $('.dropdown').click(function() {
+            $(this).attr('tabindex', 1).focus();
+            $(this).toggleClass('active');
+            $(this).find('.dropdown-menu').slideToggle(300);
+        });
+        $('.dropdown').focusout(function() {
+            $(this).removeClass('active');
+            $(this).find('.dropdown-menu').slideUp(300);
+        });
+        $('.dropdown .dropdown-menu li').click(function() {
+            $(this).parents('.dropdown').find('span').text($(this).text());
+            $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+        });
+        /*End Dropdown Menu*/
+
+
+        $('.dropdown-menu li').click(function() {
+            var input = '<strong>' + $(this).parents('.dropdown').find('input').val() + '</strong>',
+                msg = '<span class="msg">Hidden input value: ';
+            $('.msg').html(msg + input + '</span>');
+        });
+    </script>
+</body>
+
+</html>

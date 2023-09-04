@@ -1,0 +1,45 @@
+<!-- Card deck -->
+<div class="row justify-content-start mt-5">
+    <% stories.forEach(x=>{ %>
+        <div class="col-xl-3 col-sm-4 ">
+            <div class="card mb-4">
+
+                <!--Card content-->
+                <div class="card-body">
+                    <% if(currentuser.id ==x.user._id){%>
+                        <a type="button" href="/stories/edit/<%=x._id %>" class="btn btn-primary" style="width:40px;height:40px;border-radius: 50%;position: absolute;top: -25px;"><i class="fas fa-edit"></i></a>
+                        <% } %>
+                            <!--Title-->
+                            <div class="row justify-content-center">
+                                <h4 class="card-title text-center">
+                                    <%= x.tittle %>
+                                </h4>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="chip">
+                                    <img src="<%= x.user.user_img%>" style="width: 50px;border-radius: 50%;" alt="Contact Person">
+                                    <%= x.user.displayName%>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mt-3">
+                                <p class="text-center">
+                                    <%= x.createdAt %>
+                                </p>
+                            </div>
+                            <div class="row justify-content-center ">
+                                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                                <a href="/stories/<%= x._id%>" type="button" class="btn  btn-md text-white " style="background: #2F89FC;">Read Story</a>
+
+                            </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Central Modal Small -->
+
+        <% }) %>
+
+
+</div>

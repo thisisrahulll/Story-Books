@@ -1,0 +1,61 @@
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script> -->
+
+<div class="container">
+    <div class="row">
+
+
+        <div class="col-md-12">
+            <h2 class="text-center mt-4">Dashboard</h2>
+            <div class="table-responsive mt-5">
+
+
+                <table id="mytable" class="table table-bordred table-striped">
+
+                    <thead>
+                        <th>Tittle</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody>
+                        <% stories.forEach(x=>{ %>
+                            <tr>
+                                <td>
+                                    <a href="/stories/<%= x._id %>">
+                                        <%=x.tittle%>
+                                    </a>
+                                </td>
+                                <td>
+                                    <%=x.createdAt%>
+                                </td>
+                                <td>
+                                    <%=x.status%>
+                                </td>
+                                <td>
+                                    <p data-placement="top" data-toggle="tooltip" title="Edit"><a href="/stories/edit/<%=x._id %>" class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></a></p>
+                                </td>
+                                <td>
+                                    <p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button></p>
+                                </td>
+                            </tr>
+
+                            <% }) %>
+
+                    </tbody>
+
+                </table>
+
+                <div class="clearfix"></div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
